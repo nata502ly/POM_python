@@ -2,6 +2,8 @@ from Config.config import TestData
 from Pages.BasePage import BasePage
 from selenium.webdriver.common.by import By
 
+from Pages.HomePage import HomePage
+
 
 class LoginPage(BasePage):
     EMAIL = (By.CSS_SELECTOR, 'input#username')
@@ -24,3 +26,4 @@ class LoginPage(BasePage):
         self.do_send_keys(self.EMAIL, username)
         self.do_send_keys(self.PASS, password)
         self.do_click(self.LOGIN_BUTTON)
+        return HomePage(self.driver)
